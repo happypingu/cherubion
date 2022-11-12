@@ -1,6 +1,6 @@
-from text_based_rpg import interface
-from text_based_rpg.start_game import start_game
-from text_based_rpg.load_game import load_game
+from cherubion_game import interface
+from cherubion_game.start_game import start_game
+from cherubion_game.load_game import load_game
 
 PLAY = "New Game".lower()
 LOAD = "Load Game".lower()
