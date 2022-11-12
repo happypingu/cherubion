@@ -1,0 +1,15 @@
+{
+    "entity_values": [
+        "health",
+        "stamina"
+    ],
+
+    "_other_stats": [
+        "strength",
+        "magic",
+        "defence",
+        "luck"
+    ],
+
+    "values_view_line_template": "{value_name}: {current}/{maximum}"
+}
