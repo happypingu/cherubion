@@ -1,11 +1,6 @@
-"""
-This modules handles the interface and the logic behind creating the player's
-character.
-"""
+'''
 from . import interface
-from .combat_entity import CombatEntity
-from .player import Player
-from . import attack
+from .player.races import Player
 
 _ENTITY_DISPLAY_NAME = "You"
 
@@ -16,17 +11,6 @@ _AZEN = "azen"
 _HHRGAK = "hhrgak"
 _RACES = [_EEMSI, _KEOR, _HREEIR, _AZEN, _HHRGAK]
 
-'''
-INFO: DMG TEMPLATE
-_PUNCH_ATTACK = attack.Attack(
-    name="punch",
-    display_name="Punch",
-    type_=attack.MELEE,
-    damage=1,
-    stamina_cost=2,
-    description_of_being_used="punch"
-)
-'''
 # DEFAULT HP: 20
 # DEFAULT STRENGTH: 14
 # DEFAULT DEFENCE: 14
@@ -35,7 +19,7 @@ _PUNCH_ATTACK = attack.Attack(
 
 _EEMSI_ENTITY = CombatEntity(
     display_name=_ENTITY_DISPLAY_NAME,
-    maximum_health=26,
+    max_hp=26,
     strength=17,
     defence=14,
     luck=7,
@@ -44,7 +28,7 @@ _EEMSI_ENTITY = CombatEntity(
 
 _KEOR_ENTITY = CombatEntity(
     display_name=_ENTITY_DISPLAY_NAME,
-    maximum_health=28,
+    max_hp=28,
     strength=11,
     defence=16,
     luck=9,
@@ -53,7 +37,7 @@ _KEOR_ENTITY = CombatEntity(
 
 _HREEIR_ENTITY = CombatEntity(
     display_name=_ENTITY_DISPLAY_NAME,
-    maximum_health=24,
+    max_hp=24,
     strength=14,
     defence=14,
     luck=8,
@@ -62,7 +46,7 @@ _HREEIR_ENTITY = CombatEntity(
 
 _AZEN_ENTITY = CombatEntity(
     display_name=_ENTITY_DISPLAY_NAME,
-    maximum_health=16,
+    max_hp=16,
     strength=14,
     defence=14,
     luck=11,
@@ -71,7 +55,7 @@ _AZEN_ENTITY = CombatEntity(
 
 _HHRGAK_ENTITY = CombatEntity(
     display_name=_ENTITY_DISPLAY_NAME,
-    maximum_health=18,
+    max_hp=18,
     strength=11,
     defence=15,
     luck=11,
@@ -103,3 +87,33 @@ def create_player():
 
     if command == _HHRGAK:
         return Player(_HHRGAK_ENTITY, "hhrgak")
+
+
+_EEMSI = "eemsi"
+_KEOR = "keor"
+_HREEIR = "hreeir"
+_AZEN = "azen"
+_HHRGAK = "hhrgak"
+'''
+
+def create_player():
+    pass
+
+class Eemsi():
+    pass
+
+
+class Keor():
+    pass
+
+
+class Hreeir():
+    pass
+
+
+class Azen():
+    pass
+
+
+class Hhrgak():
+    pass

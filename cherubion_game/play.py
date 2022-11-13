@@ -1,5 +1,6 @@
 from cherubion_game import interface
-from cherubion_game.start_game import start_game
+from .rooms.village import room as village
+from .player.races import create_player
 from cherubion_game.load_game import load_game
 
 PLAY = "New Game".lower()
@@ -10,7 +11,6 @@ COMMANDS = [PLAY, LOAD, QUIT]
 def play():
     while True:
         interface.print_("Welcome to Cherubion!\n")
-
         interface.print_(f'> New Game')
         interface.print_(f'> Load Game')
         interface.print_(f'> Quit')
@@ -18,7 +18,8 @@ def play():
 
         # TODO: add load_game() function to load saves
         if command == PLAY:
-            start_game()
+            player = create_player()
+            village.enter(player)
 
         if command == LOAD:
             load_game()
