@@ -132,7 +132,22 @@ def leave_village():
     )
 
 def jar_questions():
-    print('asd')
+    interface.print_multiple_lines(
+        lines=[
+            "- Tell me about Farun's jar, - you say to the priest, who has a look of resentment in his eyes.",
+            "And fear. ",
+            "Yes, you're sure that at the mention of the jar the priest shudders with fear.",
+            "- There's nothing special about that jar... - he begins, then corrects himself quickly.",
+            "- Apart, that is, from the fact that it is the last known handiwork of our Order's saint, the Great Farun, and is therefore held in extremely high esteem in our Church.",
+            "You nod your head in agreement, but you remain curious, but you are sure that the priest will not spill the beans about the jar.",
+            "Perhaps the innkeeper will...",
+            "",
+            "If you have finished speaking, say 'finished'",
+            "If you'd like to ask about the area, say 'area'",
+            "If you'd like to ask about Halumbar, say 'halumbar'."
+        ],
+        delay=0
+    )
 
 # Page 229
 def enter(room, player):
@@ -156,95 +171,34 @@ def enter(room, player):
                 command = interface.get_game_command(player, room, additional_commands)
 
                 if command == "finished":
-                    finished_talking()
+                    pass
 
-                    additional_commands.clear()
-                    additional_commands = ["donate", "continue"]
-                    command = interface.get_game_command(player, room, additional_commands)
-
-                    if command == "donate": # page 20
-                        make_a_donation()
-
-                        additional_commands.clear()
-                        additional_commands = ["less", "few", "lot"]
-                        command = interface.get_game_command(player, room, additional_commands)
-
-                        # TODO: MONEY SYSTEM
-                    
-                    if command == "continue": # page 286, 159
-                        continue_your_way()
-
-                        additional_commands.clear()
-                        additional_commands = ["inn", "shop", "leave"]
-                        command = interface.get_game_command(player, room, additional_commands)
-
-                        if command == "shop": # Page 23
-                            from .shop import room as shop
-                            shop.enter(player)
-
-                        if command == "inn": # Page 312
-                            from .inn import room as inn
-                            inn.enter(player)
-                            
-                        if command == "leave": # Page 196
-                            leave_village()
-
-                            additional_commands.clear()
-                            additional_commands = ["forest", "continue"]
-                            command = interface.get_game_command(player, room, additional_commands)
-
-                            if command == "forest":
-                                from .forest import room as forest
-                                forest.enter(player)
-
-                            if command == "continue":
-                                continue_journey()
-
-                                additional_commands.clear()
-                                additional_commands = ["mountains", "plains", "village", "forest"]
-                                command = interface.get_game_command(player, room, additional_commands)
-
-                                if command == "mountains":
-                                    from .mountain import room as mountain
-                                    mountain.enter(player)
-                                
-                                if command == "plains":
-                                    from .plains import room as plains
-                                    plains.enter(player)
-                                
-                                if command == "forest":
-                                    from .forest import room as forest
-                                    forest.enter(player)
-                                
-                                if command == "village":
-                                    enter_village()
-
-                                    additional_commands.clear()
-                                    additional_commands = ["church", "shop", "inn"]
-                                    command = interface.get_game_command(player, room, additional_commands)
-
-                                    if command == "church": # Page 229
-                                        from .church import room as church
-                                        church.enter(player)
-
-                                    if command == "shop": # Page 23
-                                        from .shop import room as shop
-                                        shop.enter(player)
-
-                                    if command == "inn": # Page 312
-                                        from .inn import room as inn
-                                        inn.enter(player)
-
-                if command == "jar":
-                    jar_questions()
+                if command == "jar": # Page 23
+                    pass
 
                 if command == "area":
                     pass
 
             if command == "jar": # Page 23
-                print('u said jar')
+                jar_questions()
+
+                additional_commands.clear()
+                additional_commands = ["finished", "area", "halumbar"]
+                command = interface.get_game_command(player, room, additional_commands)
+
+                if command == "finished":
+                    pass
+
+                if command == "area":
+                    pass
+
+                if command == "halumbar":
+                    pass
 
             if command == "area": # Page 312
+                pass
+            
+            if command == "finished":
                 pass
 
         if command == "area": # Page 318
@@ -253,6 +207,92 @@ def enter(room, player):
             additional_commands.clear()
             additional_commands = ["religion", "finished"]
             command = interface.get_game_command(player, room, additional_commands)
+
+            if command == "religion":
+                pass
+
+            if command == "finished":
+                pass
+        
+        if command == "finished":
+            finished_talking()
+
+            additional_commands.clear()
+            additional_commands = ["donate", "continue"]
+            command = interface.get_game_command(player, room, additional_commands)
+
+            if command == "donate": # page 20
+                make_a_donation()
+
+                additional_commands.clear()
+                additional_commands = ["less", "few", "lot"]
+                command = interface.get_game_command(player, room, additional_commands)
+
+                # TODO: MONEY SYSTEM
+            
+            if command == "continue": # page 286, 159
+                continue_your_way()
+
+                additional_commands.clear()
+                additional_commands = ["inn", "shop", "leave"]
+                command = interface.get_game_command(player, room, additional_commands)
+
+                if command == "shop": # Page 23
+                    from .shop import room as shop
+                    shop.enter(player)
+
+                if command == "inn": # Page 312
+                    from .inn import room as inn
+                    inn.enter(player)
+                    
+                if command == "leave": # Page 196
+                    leave_village()
+
+                    additional_commands.clear()
+                    additional_commands = ["forest", "continue"]
+                    command = interface.get_game_command(player, room, additional_commands)
+
+                    if command == "forest":
+                        from .forest import room as forest
+                        forest.enter(player)
+
+                    if command == "continue":
+                        continue_journey()
+
+                        additional_commands.clear()
+                        additional_commands = ["mountains", "plains", "village", "forest"]
+                        command = interface.get_game_command(player, room, additional_commands)
+
+                        if command == "mountains":
+                            from .mountain import room as mountain
+                            mountain.enter(player)
+                        
+                        if command == "plains":
+                            from .plains import room as plains
+                            plains.enter(player)
+                        
+                        if command == "forest":
+                            from .forest import room as forest
+                            forest.enter(player)
+                        
+                        if command == "village":
+                            enter_village()
+
+                            additional_commands.clear()
+                            additional_commands = ["church", "shop", "inn"]
+                            command = interface.get_game_command(player, room, additional_commands)
+
+                            if command == "church": # Page 229
+                                from .church import room as church
+                                church.enter(player)
+
+                            if command == "shop": # Page 23
+                                from .shop import room as shop
+                                shop.enter(player)
+
+                            if command == "inn": # Page 312
+                                from .inn import room as inn
+                                inn.enter(player)
 
 room = Room(
     enter=enter
