@@ -87,33 +87,89 @@ def create_player():
 
     if command == _HHRGAK:
         return Player(_HHRGAK_ENTITY, "hhrgak")
-
-
-_EEMSI = "eemsi"
-_KEOR = "keor"
-_HREEIR = "hreeir"
-_AZEN = "azen"
-_HHRGAK = "hhrgak"
 '''
+RACES = ["eemsi", "keor", "hreeir", "azen", "hhrgak"]
 
-def create_player():
-    pass
+def create_race():
+    print("There are five races you can choose from: Eemsi, Keor, Hreeir, Azen, Hhrgak\n")
+    print("if u wanna see the info, say info and the name of the race")
+    print("if u wanna choose say choose and the name of the race")
+    while True:
+        choose_or_info = input()
+
+        if choose_or_info.lower() == "info eemsi":
+            print(f'Health: {Eemsi.max_health}')
+
+
+        race_prompt = input()
+        if race_prompt.lower() == "eemsi":
+            race_chosen = Eemsi.create_player
+
+        if race_prompt.lower() == "keor":
+            race_chosen = Keor.create_player
+
+        if race_prompt.lower() == "hreeir":
+            race_chosen = Hreeir.create_player
+
+        if race_prompt.lower() == "azen":
+            race_chosen = Azen.create_player
+
+        if race_prompt.lower() == "hhrgak":
+            race_chosen = Hhrgak.create_player
+    
+    return race_chosen
 
 class Eemsi():
-    pass
-
+    def create_player(self):
+        self.max_health = 26
+        self.health = self.max_health
+        self.strength = 17
+        self.defence = 14
+        self.luck = 7
+        self.magic = 20
+    
+    def show_info():
+        print(f'Health: ')
+        print(f'Strength: ')
+        print(f'Defence: ')
+        print(f'Luck: ')
+        print(f'Magic: ')
 
 class Keor():
-    pass
+    def create_player(self):
+        self.max_health = 28
+        self.health = self.max_health
+        self.strength = 11
+        self.defence = 16
+        self.luck = 9
+        self.magic = 20
 
 
 class Hreeir():
-    pass
+    def create_player(self):
+        self.max_health = 24
+        self.health = self.max_health
+        self.strength = 14
+        self.defence = 14
+        self.luck = 8
+        self.magic = 20
 
 
 class Azen():
-    pass
+    def create_player(self):
+        self.max_health = 16
+        self.health = self.max_health
+        self.strength = 14
+        self.defence = 14
+        self.luck = 11
+        self.magic = 25
 
 
 class Hhrgak():
-    pass
+    def create_player(self):
+        self.max_health = 18
+        self.health = self.max_health
+        self.strength = 11
+        self.defence = 15
+        self.luck = 11
+        self.magic = 28

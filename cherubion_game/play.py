@@ -1,6 +1,6 @@
 from cherubion_game import interface
 from .rooms.village import room as village
-from .player.races import create_player
+from .player.races import create_race
 from cherubion_game.load_game import load_game
 
 PLAY = "New Game".lower()
@@ -18,7 +18,7 @@ def play():
 
         # TODO: add load_game() function to load saves
         if command == PLAY:
-            player = create_player()
+            player = create_race()
             village.enter(player)
 
         if command == LOAD:
