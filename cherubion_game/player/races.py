@@ -1,6 +1,7 @@
-from . import interface
+from cherubion_game import interface
 
 RACES = ["eemsi", "keor", "hreeir", "azen", "hhrgak"]
+
 
 # TODO: add relevant data
 def create_race():
@@ -9,9 +10,10 @@ def create_race():
     interface.print_("if u wanna choose say choose and the name of the race")
 
     while True:
-        choose_or_info = input()
+        ourclass = input()
         info_choose_commands = ['info eemsi', 'info keor', 'info hreeir', 'info azen', 'info hhrgak', 'choose eemsi', 'choose keor', 'choose hreeir', 'choose azen', 'choose hhrgak']
-        if choose_or_info.lower() == info_choose_commands[0]:
+
+        if ourclass.lower() == info_choose_commands[0]:
             interface.print_()
             interface.print_('Race: Eemsi')
             interface.print_('Health:', 26)
@@ -21,7 +23,7 @@ def create_race():
             interface.print_('Magic:', 20)
             interface.print_()
 
-        if choose_or_info.lower() == info_choose_commands[1]:
+        if ourclass.lower() == info_choose_commands[1]:
             interface.print_()
             interface.print_('Race: Keor')
             interface.print_('Health:', 28)
@@ -31,7 +33,7 @@ def create_race():
             interface.print_('Magic:', 20)
             interface.print_()
 
-        if choose_or_info.lower() == info_choose_commands[2]:
+        if ourclass.lower() == info_choose_commands[2]:
             interface.print_()
             interface.print_('Race: Hreeir')
             interface.print_('Health:', 24)
@@ -41,7 +43,7 @@ def create_race():
             interface.print_('Magic:', 20)
             interface.print_()
 
-        if choose_or_info.lower() == info_choose_commands[3]:
+        if ourclass.lower() == info_choose_commands[3]:
             interface.print_()
             interface.print_('Race: Azen')
             interface.print_('Health:', 16)
@@ -51,7 +53,7 @@ def create_race():
             interface.print_('Magic:', 25)
             interface.print_()
 
-        if choose_or_info.lower() == info_choose_commands[4]:
+        if ourclass.lower() == info_choose_commands[4]:
             interface.print_()
             interface.print_('Race: Hhrgak')
             interface.print_('Health:', 18)
@@ -60,6 +62,29 @@ def create_race():
             interface.print_('Luck:', 11)
             interface.print_('Magic:', 28)
             interface.print_()
+
+        if ourclass.lower() == info_choose_commands[5]:
+            ourclass = 'eemsi'
+            break
+
+        elif ourclass.lower() == info_choose_commands[6]:
+            ourclass = 'keor'
+            break
+
+        elif ourclass.lower() == info_choose_commands[7]:
+            ourclass = 'hreeir'
+            break
+
+        elif ourclass.lower() == info_choose_commands[8]:
+            ourclass = 'azen'
+            break
+
+        elif ourclass.lower() == info_choose_commands[9]:
+            ourclass = 'hhrgak'
+            break
+
+        if ourclass.lower() not in info_choose_commands:
+            print('Not a valid command!')
 
 
 class Hero():
@@ -80,6 +105,50 @@ class Hero():
 
         self.basemagic = heromagic
         self.magic = self.basemagic
+    
+    def raceperks(self):
+        if self.ourclass == 'eemsi':
+            self.basehealth = 26
+            self.basestrength = 17
+            self.basedefence = 14
+            self.baseluck = 7
+            self.basemagic = 20
+        
+        elif self.ourclass == 'keor':
+            self.basehealth = 28
+            self.basestrength = 11
+            self.basedefence = 16
+            self.baseluck = 9
+            self.basemagic = 20
+
+        elif self.ourclass == 'hreeir':
+            self.basehealth = 24
+            self.basestrength = 14
+            self.basedefence = 14
+            self.baseluck = 8
+            self.basemagic = 20
+
+        elif self.ourclass == 'azen':
+            self.basehealth = 16
+            self.basestrength = 14
+            self.basedefence = 14
+            self.baseluck = 11
+            self.basemagic = 25
+
+        elif self.ourclass == 'hhrgak':
+            self.basehealth = 18
+            self.basestrength = 11
+            self.basedefence = 15
+            self.baseluck = 11
+            self.basemagic = 28
+
+    def print_info(self):
+        interface.print_('Race', str(self.ourrace))
+        interface.print_('Health', str(self.health))
+        interface.print_('Strength', str(self.strength))
+        interface.print_('Defence', str(self.defence))
+        interface.print_('Luck', str(self.luck))
+        interface.print_('Magic', str(self.magic))
 
 
 # TODO: add relevant data
@@ -92,50 +161,3 @@ def datadict(self):
         'Luck': str(self.luck),
         'Magic': str(self.magic)
     }
-
-
-def raceperks(self):
-    if self.ourclass == 'eemsi':
-        self.basehealth = 26
-        self.basestrength = 17
-        self.basedefence = 14
-        self.baseluck = 7
-        self.basemagic = 20
-    
-    elif self.ourclass == 'keor':
-        self.basehealth = 28
-        self.basestrength = 11
-        self.basedefence = 16
-        self.baseluck = 9
-        self.basemagic = 20
-
-    elif self.ourclass == 'hreeir':
-        self.basehealth = 24
-        self.basestrength = 14
-        self.basedefence = 14
-        self.baseluck = 8
-        self.basemagic = 20
-
-    elif self.ourclass == 'azen':
-        self.basehealth = 16
-        self.basestrength = 14
-        self.basedefence = 14
-        self.baseluck = 11
-        self.basemagic = 25
-
-    elif self.ourclass == 'hhrgak':
-        self.basehealth = 18
-        self.basestrength = 11
-        self.basedefence = 15
-        self.baseluck = 11
-        self.basemagic = 28
-
-
-# TODO: add relevant data
-def print_info(self):
-    interface.print_('Race', str(self.ourrace))
-    interface.print_('Health', str(self.health))
-    interface.print_('Strength', str(self.strength))
-    interface.print_('Defence', str(self.defence))
-    interface.print_('Luck', str(self.luck))
-    interface.print_('Magic', str(self.magic))

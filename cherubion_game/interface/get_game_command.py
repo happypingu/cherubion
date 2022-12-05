@@ -3,6 +3,7 @@
 from .get_command import get_command
 from .print_multiple_lines import print_multiple_lines
 from .built_in_methods import print_
+from ..player import races
 
 _STATS = "stats"
 _INVENTORY = "inventory"
@@ -53,7 +54,8 @@ def get_game_command(player, room, additional_commands=[]):
             return command
 
         if command == _STATS:
-            player.stats_view()
+            info = races.Hero()
+            info.print_info()
 
         if command == _INVENTORY:
             player.inventory_view()
