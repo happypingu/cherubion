@@ -4,6 +4,7 @@ RACES = ["eemsi", "keor", "hreeir", "azen", "hhrgak"]
 
 
 # TODO: add relevant data
+
 def create_race():
     race_info = {
         "eemsi": {
@@ -53,39 +54,37 @@ def create_race():
         for race in RACES:
             if user_input.lower() == f"info {race}":
                 interface.print_()
-                interface.print_('Race: {race.captalize()}')
-                interface.print_('Health:', race_info[race]["health"])
-                interface.print_('Strength:', race_info[race]["strength"])
-                interface.print_('Defence:', race_info[race]["defence"])
-                interface.print_('Luck:', race_info[race]["luck"])
-                interface.print_('Magic:', race_info[race]["magic"]])
+                interface.print_(f'Race: {race.capitalize()}')
+                interface.print_(f'Health: {race_info[race]["health"]}')
+                interface.print_(f'Strength: {race_info[race]["strength"]}')
+                interface.print_(f'Defence: {race_info[race]["defence"]}')
+                interface.print_(f'Luck: {race_info[race]["luck"]}')
+                interface.print_(f'Magic: {race_info[race]["magic"]}')
                 interface.print_()
 
             elif f"choose {race}" in user_input.lower():
                 return race
             
-
-            else:
-                print('Not a valid command!')
+        print('Not a valid command!')
 
 
-class Hero():
-    def __init__(self, herorace, herohealth, herostrength, herodefence, heroluck, heromagic):
+class Hero:
+    def __init__(self, herorace):
         self.ourrace = herorace
 
-        self.basehealth = herohealth
+        self.basehealth = 0
         self.health = self.basehealth
 
-        self.basestrength = herostrength
+        self.basestrength = 0
         self.strength = self.basestrength
 
-        self.basedefence = herodefence
+        self.basedefence = 0
         self.defence = self.basedefence
 
-        self.baseluck = heroluck
+        self.baseluck = 0
         self.luck = self.baseluck
 
-        self.basemagic = heromagic
+        self.basemagic = 0
         self.magic = self.basemagic
     
     def __str__(self):
@@ -99,37 +98,46 @@ class Hero():
         )
 
     def raceperks(self):
-        if self.ourrace == 'eemsi':
-            self.basehealth = 26
-            self.basestrength = 17
-            self.basedefence = 14
-            self.baseluck = 7
-            self.basemagic = 20
-        
-        elif self.ourrace == 'keor':
-            self.basehealth = 28
-            self.basestrength = 11
-            self.basedefence = 16
-            self.baseluck = 9
-            self.basemagic = 20
+        race_info = {
+            "eemsi": {
+                "health": 26,
+                "strength": 17,
+                "defence": 14,
+                "luck": 7,
+                "magic": 20
+            },
+            "keor": {
+                "health": 28,
+                "strength": 11,
+                "defence": 16,
+                "luck": 9,
+                "magic": 20
+            },
+            "hreeir": {
+                "health": 24,
+                "strength": 14,
+                "defence": 14,
+                "luck": 8,
+                "magic": 20
+            },
+            "azen": {
+                "health": 16,
+                "strength": 14,
+                "defence": 14,
+                "luck": 11,
+                "magic": 28
+            },
+            "hhrgak": {
+                "health": 18,
+                "strength": 11,
+                "defence": 15,
+                "luck": 11,
+                "magic": 28
+            },
+        }
 
-        elif self.ourrace == 'hreeir':
-            self.basehealth = 24
-            self.basestrength = 14
-            self.basedefence = 14
-            self.baseluck = 8
-            self.basemagic = 20
-
-        elif self.ourrace == 'azen':
-            self.basehealth = 16
-            self.basestrength = 14
-            self.basedefence = 14
-            self.baseluck = 11
-            self.basemagic = 25
-
-        elif self.ourrace == 'hhrgak':
-            self.basehealth = 18
-            self.basestrength = 11
-            self.basedefence = 15
-            self.baseluck = 11
-            self.basemagic = 28
+        self.basehealth = race_info[self.ourrace]["health"]
+        self.basestrength = race_info[self.ourrace]["strength"]
+        self.basedefence = race_info[self.ourrace]["defence"]
+        self.baseluck = race_info[self.ourrace]["luck"]
+        self.basemagic = race_info[self.ourrace]["magic"]
