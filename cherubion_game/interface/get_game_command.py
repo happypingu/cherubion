@@ -54,9 +54,8 @@ def get_game_command(player, room, additional_commands=[]):
             return command
 
         if command == _STATS:
-            info = races.Hero()
-            info.print_info()
-
+            pass
+        
         if command == _INVENTORY:
             player.inventory_view()
 

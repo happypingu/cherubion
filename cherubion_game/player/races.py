@@ -6,14 +6,14 @@ RACES = ["eemsi", "keor", "hreeir", "azen", "hhrgak"]
 # TODO: add relevant data
 def create_race():
     interface.print_("There are five races you can choose from: Eemsi, Keor, Hreeir, Azen, Hhrgak\n")
-    interface.print_("if u wanna see the info, say info and the name of the race")
-    interface.print_("if u wanna choose say choose and the name of the race")
+    interface.print_("To see information about a race, enter 'info' followed by the name of the race.")
+    interface.print_("To choose a race, enter 'choose' followed by the name of the race.\n")
 
     while True:
-        ourclass = input()
+        ourclass = input("> ")
         info_choose_commands = ['info eemsi', 'info keor', 'info hreeir', 'info azen', 'info hhrgak', 'choose eemsi', 'choose keor', 'choose hreeir', 'choose azen', 'choose hhrgak']
 
-        if ourclass.lower() == info_choose_commands[0]:
+        if ourclass.lower() == "info eemsi":
             interface.print_()
             interface.print_('Race: Eemsi')
             interface.print_('Health:', 26)
@@ -23,7 +23,7 @@ def create_race():
             interface.print_('Magic:', 20)
             interface.print_()
 
-        if ourclass.lower() == info_choose_commands[1]:
+        if ourclass.lower() == "info keor":
             interface.print_()
             interface.print_('Race: Keor')
             interface.print_('Health:', 28)
@@ -33,7 +33,7 @@ def create_race():
             interface.print_('Magic:', 20)
             interface.print_()
 
-        if ourclass.lower() == info_choose_commands[2]:
+        if ourclass.lower() == "info hreeir":
             interface.print_()
             interface.print_('Race: Hreeir')
             interface.print_('Health:', 24)
@@ -43,7 +43,7 @@ def create_race():
             interface.print_('Magic:', 20)
             interface.print_()
 
-        if ourclass.lower() == info_choose_commands[3]:
+        if ourclass.lower() == "info azen":
             interface.print_()
             interface.print_('Race: Azen')
             interface.print_('Health:', 16)
@@ -53,7 +53,7 @@ def create_race():
             interface.print_('Magic:', 25)
             interface.print_()
 
-        if ourclass.lower() == info_choose_commands[4]:
+        if ourclass.lower() == "info hhrgak":
             interface.print_()
             interface.print_('Race: Hhrgak')
             interface.print_('Health:', 18)
@@ -63,23 +63,23 @@ def create_race():
             interface.print_('Magic:', 28)
             interface.print_()
 
-        if ourclass.lower() == info_choose_commands[5]:
+        if ourclass.lower() == "choose eemsi":
             ourclass = 'eemsi'
             break
 
-        elif ourclass.lower() == info_choose_commands[6]:
+        elif ourclass.lower() == "choose keor":
             ourclass = 'keor'
             break
 
-        elif ourclass.lower() == info_choose_commands[7]:
+        elif ourclass.lower() == "choose hreeir":
             ourclass = 'hreeir'
             break
 
-        elif ourclass.lower() == info_choose_commands[8]:
+        elif ourclass.lower() == "choose azen":
             ourclass = 'azen'
             break
 
-        elif ourclass.lower() == info_choose_commands[9]:
+        elif ourclass.lower() == "choose hhrgak":
             ourclass = 'hhrgak'
             break
 
@@ -106,6 +106,16 @@ class Hero():
         self.basemagic = heromagic
         self.magic = self.basemagic
     
+    def __str__(self):
+        return (
+            f"Race: {self.ourrace}\n"
+            f"Health: {self.health}\n"
+            f"Strength: {self.strength}\n"
+            f"Defence: {self.defence}\n"
+            f"Luck: {self.luck}\n"
+            f"Magic: {self.magic}\n"
+        )
+
     def raceperks(self):
         if self.ourclass == 'eemsi':
             self.basehealth = 26
@@ -142,13 +152,6 @@ class Hero():
             self.baseluck = 11
             self.basemagic = 28
 
-    def print_info(self):
-        interface.print_('Race', str(self.ourrace))
-        interface.print_('Health', str(self.health))
-        interface.print_('Strength', str(self.strength))
-        interface.print_('Defence', str(self.defence))
-        interface.print_('Luck', str(self.luck))
-        interface.print_('Magic', str(self.magic))
 
 
 # TODO: add relevant data
