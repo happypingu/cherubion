@@ -55,7 +55,7 @@ def get_game_command(player, room, additional_commands=[]):
 
         if command == _STATS:
             pass
-        
+
         if command == _INVENTORY:
             player.inventory_view()
 

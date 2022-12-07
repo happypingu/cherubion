@@ -11,7 +11,6 @@ def create_race():
 
     while True:
         ourclass = input("> ")
-        info_choose_commands = ['info eemsi', 'info keor', 'info hreeir', 'info azen', 'info hhrgak', 'choose eemsi', 'choose keor', 'choose hreeir', 'choose azen', 'choose hhrgak']
 
         if ourclass.lower() == "info eemsi":
             interface.print_()
@@ -64,26 +63,21 @@ def create_race():
             interface.print_()
 
         if ourclass.lower() == "choose eemsi":
-            ourclass = 'eemsi'
-            break
+            return "eemsi"
 
         elif ourclass.lower() == "choose keor":
-            ourclass = 'keor'
-            break
+            return "keor"
 
         elif ourclass.lower() == "choose hreeir":
-            ourclass = 'hreeir'
-            break
+            return "hreeir"
 
         elif ourclass.lower() == "choose azen":
-            ourclass = 'azen'
-            break
+            return "azen"
 
         elif ourclass.lower() == "choose hhrgak":
-            ourclass = 'hhrgak'
-            break
+            return "hhrgak"
 
-        if ourclass.lower() not in info_choose_commands:
+        else:
             print('Not a valid command!')
 
 
@@ -151,16 +145,3 @@ class Hero():
             self.basedefence = 15
             self.baseluck = 11
             self.basemagic = 28
-
-
-
-# TODO: add relevant data
-def datadict(self):
-    return {
-        'Race': str(self.ourrace),
-        'Health': str(self.health),
-        'Strength': str(self.strength),
-        'Defence': str(self.defence),
-        'Luck': str(self.luck),
-        'Magic': str(self.magic)
-    }
