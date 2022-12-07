@@ -48,36 +48,25 @@ def create_race():
     interface.print_("To choose a race, enter 'choose' followed by the name of the race.\n")
 
     while True:
-        ourclass = input("> ")
+        user_input = input("> ")
         
         for race in RACES:
-            if ourclass.lower() == "info {race}":
+            if user_input.lower() == f"info {race}":
                 interface.print_()
-                interface.print_('Race: {race.captalize{}}')
+                interface.print_('Race: {race.captalize()}')
                 interface.print_('Health:', race_info[race]["health"])
                 interface.print_('Strength:', race_info[race]["strength"])
                 interface.print_('Defence:', race_info[race]["defence"])
                 interface.print_('Luck:', race_info[race]["luck"])
-                interface.print_('Magic:', race_info[race["magic"]])
+                interface.print_('Magic:', race_info[race]["magic"]])
                 interface.print_()
 
-        if ourclass.lower() == "choose eemsi":
-            return "eemsi"
+            elif f"choose {race}" in user_input.lower():
+                return race
+            
 
-        elif ourclass.lower() == "choose keor":
-            return "keor"
-
-        elif ourclass.lower() == "choose hreeir":
-            return "hreeir"
-
-        elif ourclass.lower() == "choose azen":
-            return "azen"
-
-        elif ourclass.lower() == "choose hhrgak":
-            return "hhrgak"
-
-        else:
-            print('Not a valid command!')
+            else:
+                print('Not a valid command!')
 
 
 class Hero():
@@ -110,35 +99,35 @@ class Hero():
         )
 
     def raceperks(self):
-        if self.ourclass == 'eemsi':
+        if self.ourrace == 'eemsi':
             self.basehealth = 26
             self.basestrength = 17
             self.basedefence = 14
             self.baseluck = 7
             self.basemagic = 20
         
-        elif self.ourclass == 'keor':
+        elif self.ourrace == 'keor':
             self.basehealth = 28
             self.basestrength = 11
             self.basedefence = 16
             self.baseluck = 9
             self.basemagic = 20
 
-        elif self.ourclass == 'hreeir':
+        elif self.ourrace == 'hreeir':
             self.basehealth = 24
             self.basestrength = 14
             self.basedefence = 14
             self.baseluck = 8
             self.basemagic = 20
 
-        elif self.ourclass == 'azen':
+        elif self.ourrace == 'azen':
             self.basehealth = 16
             self.basestrength = 14
             self.basedefence = 14
             self.baseluck = 11
             self.basemagic = 25
 
-        elif self.ourclass == 'hhrgak':
+        elif self.ourrace == 'hhrgak':
             self.basehealth = 18
             self.basestrength = 11
             self.basedefence = 15
