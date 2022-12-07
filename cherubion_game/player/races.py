@@ -5,6 +5,44 @@ RACES = ["eemsi", "keor", "hreeir", "azen", "hhrgak"]
 
 # TODO: add relevant data
 def create_race():
+    race_info = {
+        "eemsi": {
+            "health": 26,
+            "strength": 17,
+            "defence": 14,
+            "luck": 7,
+            "magic": 20
+        },
+        "keor": {
+            "health": 28,
+            "strength": 11,
+            "defence": 16,
+            "luck": 9,
+            "magic": 20
+        },
+        "hreeir": {
+            "health": 24,
+            "strength": 14,
+            "defence": 14,
+            "luck": 8,
+            "magic": 20
+        },
+        "azen": {
+            "health": 16,
+            "strength": 14,
+            "defence": 14,
+            "luck": 11,
+            "magic": 28
+        },
+        "hhrgak": {
+            "health": 18,
+            "strength": 11,
+            "defence": 15,
+            "luck": 11,
+            "magic": 28
+        },
+    }
+    
     interface.print_("There are five races you can choose from: Eemsi, Keor, Hreeir, Azen, Hhrgak\n")
     interface.print_("To see information about a race, enter 'info' followed by the name of the race.")
     interface.print_("To choose a race, enter 'choose' followed by the name of the race.\n")
