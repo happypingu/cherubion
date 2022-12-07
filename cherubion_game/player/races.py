@@ -49,56 +49,17 @@ def create_race():
 
     while True:
         ourclass = input("> ")
-
-        if ourclass.lower() == "info eemsi":
-            interface.print_()
-            interface.print_('Race: Eemsi')
-            interface.print_('Health:', 26)
-            interface.print_('Strength:', 17)
-            interface.print_('Defence:', 14)
-            interface.print_('Luck:', 7)
-            interface.print_('Magic:', 20)
-            interface.print_()
-
-        if ourclass.lower() == "info keor":
-            interface.print_()
-            interface.print_('Race: Keor')
-            interface.print_('Health:', 28)
-            interface.print_('Strength:', 11)
-            interface.print_('Defence:', 16)
-            interface.print_('Luck:', 9)
-            interface.print_('Magic:', 20)
-            interface.print_()
-
-        if ourclass.lower() == "info hreeir":
-            interface.print_()
-            interface.print_('Race: Hreeir')
-            interface.print_('Health:', 24)
-            interface.print_('Strength:', 14)
-            interface.print_('Defence:', 14)
-            interface.print_('Luck:', 8)
-            interface.print_('Magic:', 20)
-            interface.print_()
-
-        if ourclass.lower() == "info azen":
-            interface.print_()
-            interface.print_('Race: Azen')
-            interface.print_('Health:', 16)
-            interface.print_('Strength:', 14)
-            interface.print_('Defence:', 14)
-            interface.print_('Luck:', 11)
-            interface.print_('Magic:', 25)
-            interface.print_()
-
-        if ourclass.lower() == "info hhrgak":
-            interface.print_()
-            interface.print_('Race: Hhrgak')
-            interface.print_('Health:', 18)
-            interface.print_('Strength:', 11)
-            interface.print_('Defence:', 15)
-            interface.print_('Luck:', 11)
-            interface.print_('Magic:', 28)
-            interface.print_()
+        
+        for race in RACES:
+            if ourclass.lower() == "info {race}":
+                interface.print_()
+                interface.print_('Race: {race.captalize{}}')
+                interface.print_('Health:', race_info[race]["health"])
+                interface.print_('Strength:', race_info[race]["strength"])
+                interface.print_('Defence:', race_info[race]["defence"])
+                interface.print_('Luck:', race_info[race]["luck"])
+                interface.print_('Magic:', race_info[race["magic"]])
+                interface.print_()
 
         if ourclass.lower() == "choose eemsi":
             return "eemsi"
