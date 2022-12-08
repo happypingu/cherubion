@@ -41,7 +41,7 @@ race_info = {
     }
 
 def create_race():
-    commands = ["info eemsi", "choose eemsi", "info keor", "choose keor", "info hreeir", "choose hreeir", "info azen", "choose azen", "info hhrgak", "choose hhrgak"]
+    commands = ["info " + race for race in RACES] + ["choose " + race for race in RACES]
 
     interface.print_("There are five races you can choose from: Eemsi, Keor, Hreeir, Azen, Hhrgak\n")
     interface.print_("To see information about a race, enter 'info' followed by the name of the race.")
@@ -66,7 +66,7 @@ def create_race():
                 return player
             
 
-        if user_input not in commands:
+        if user_input.lower() not in commands:
             print('Not a valid command!')
 
 
